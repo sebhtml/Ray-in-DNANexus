@@ -1,0 +1,15 @@
+Toolkit:
+
+https://wiki.dnanexus.com/images/files/dx-toolkit-v0.51.2-centos-amd64.tar.gz
+
+
+
+Guide:
+
+https://wiki.dnanexus.com/Developer-Tutorials/Quick-Start
+
+
+
+Add this to my PATH:
+
+/home/seb/DNANexus/dx-toolkit/bin

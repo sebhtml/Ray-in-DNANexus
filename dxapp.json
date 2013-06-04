@@ -1,0 +1,6 @@
+{ "name": "CoolRayApp",
+  "runSpec": {
+    "file": "Ray.sh",
+    "interpreter": "bash"
+  }
+}
