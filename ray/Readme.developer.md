@@ -17,7 +17,7 @@ https://launchpad.net/ubuntu/+source/openmpi/1.4.5-1ubuntu1
 Versions in DNANexus:
 
 Version 2.2.0-2
-Handle: app-
+Handle: app-B6gvJkV2kfb7Byjxk55Q010K
 
 Version 2.2.0-1
 Handle: app-B6gpGX0YKz4KVjKpk1p0007v
