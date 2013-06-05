@@ -3,8 +3,8 @@
   "title": "Ray -- Parallel genome assemblies for parallel DNA sequencing ",
   "summary": "Ray -- Parallel genome assemblies for parallel DNA sequencing ",
   "dxapi": "1.0.0",
-  "categories": ["Assembly", "Biology", "Cool"],
-  "version": "2.2.0-1",
+  "categories": ["Assembly", "Biology", "Graph"],
+  "version": "2.2.0-2",
 
   "inputSpec": [
     {

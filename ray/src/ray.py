@@ -25,8 +25,11 @@ def main(wordSize, leftFiles, rightFiles, singleFiles = []):
     # The following line(s) initialize your data object inputs on the platform
     # into dxpy.DXDataObject instances that you can start using immediately.
 
+    # Code Review by S.B.:  these 3 variables should be using different names...
+
     leftFiles = [dxpy.DXFile(item) for item in leftFiles]
     rightFiles = [dxpy.DXFile(item) for item in rightFiles]
+    singleFiles = [dxpy.DXFile(item) for item in singleFiles]
 
     # The following line(s) download your file inputs to the local file system
     # using variable names for the filenames.
@@ -52,19 +55,19 @@ def main(wordSize, leftFiles, rightFiles, singleFiles = []):
 	localLeftFiles.append(localFileName)
 
     for i in range(len(rightFiles)):
-        dataObject = leftFiles[i]
+        dataObject = rightFiles[i]
 	identifier = dataObject.get_id()
 	name = dataObject.describe()["name"]
 	localFileName = "rightFiles-" + str(i) + name
-        dxpy.download_dxfile(rightFiles[i].get_id(), localFileName)
+        dxpy.download_dxfile(identifier, localFileName)
 	localRightFiles.append(localFileName)
 
     for i in range(len(singleFiles)):
-        dataObject = leftFiles[i]
+        dataObject = singleFiles[i]
 	identifier = dataObject.get_id()
 	name = dataObject.describe()["name"]
 	localFileName = "singleFiles-" + str(i) + name
-        dxpy.download_dxfile(singleFiles[i].get_id(), localFileName)
+        dxpy.download_dxfile(identifier, localFileName)
 	localSingleFiles.append(localFileName)
 
     # Fill in your application code here.

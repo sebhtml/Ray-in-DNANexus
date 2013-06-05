@@ -1,0 +1,28 @@
+{
+    "leftFiles": [
+        {
+            "$dnanexus_link": {
+                "project": "project-B6gZ0v7bFZzKggkBkVp000PF", 
+                "id": "file-B44B62qggK9PG1fJ6Z7Q0014"
+            }
+        }
+    ], 
+    "rightFiles": [
+        {
+            "$dnanexus_link": {
+                "project": "project-B6gZ0v7bFZzKggkBkVp000PF", 
+                "id": "file-B44B66YggK97fgZ16G7Q0037"
+            }
+        }
+    ], 
+    "singleFiles": [
+        {
+            "$dnanexus_link": {
+                "project": "project-B6gZ0v7bFZzKggkBkVp000PF", 
+                "id": "file-B44B6G3ggK9PG1fJ6Z7Q0016"
+            }
+        }
+    ], 
+    "wordSize": 31
+}
+
