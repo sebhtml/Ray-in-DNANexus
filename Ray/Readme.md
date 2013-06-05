@@ -1,1 +1,0 @@
-App by Sébastien Boisvert

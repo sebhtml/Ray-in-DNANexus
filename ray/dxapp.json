@@ -1,0 +1,81 @@
+{
+  "name": "ray",
+  "title": "Ray -- Parallel genome assemblies for parallel DNA sequencing ",
+  "summary": "Ray -- Parallel genome assemblies for parallel DNA sequencing ",
+  "dxapi": "1.0.0",
+  "categories": ["Assembly", "Biology", "Cool"],
+  "version": "2.1.0-1",
+
+  "inputSpec": [
+    {
+      "name": "leftFiles",
+      "label": "Left sequence files",
+      "class": "array:file",
+      "optional": false
+    },
+    {
+      "name": "rightFiles",
+      "label": "Right sequence files",
+      "class": "array:file",
+      "optional": false
+    },
+    {
+      "name": "singleFiles",
+      "label": "Single sequence files",
+      "class": "array:file",
+      "optional": true
+    },
+
+    {"name": "wordSize", "class": "int", "default": 31}
+  ],
+
+  "outputSpec": [
+    {
+      "name": "contigs",
+      "label": "Contigs",
+      "class": "file"
+    },
+    {
+      "name": "scaffolds",
+      "label": "Scaffolds",
+      "class": "file"
+    },
+    {
+      "name": "coverageDistribution",
+      "label": "Coverage distribution",
+      "class": "file"
+    }
+  ],
+
+  "runSpec": {
+    "interpreter": "python2.7",
+    "file": "src/ray.py",
+    "execDepends": [
+		{"name": "ray",
+		"package_manager": "apt" }, 
+		{"name": "openmpi",
+		"package_manager": "apt" }
+	],
+    "systemRequirements": {
+      "main": {
+        "instanceType": "dx_m1.large"
+      },
+      "big": {
+        "instanceType": "dx_m2.4xlarge"
+      }
+    }
+  },
+
+  "details": 
+		{
+		"upstreamLicenses": ["GPLv3"],
+		"contactUrl": "http://denovoassembler.sourceforge.net/",
+		"upstreamAuthor": "Sébastien Boisvert",
+		"citations": ["doi:10.1089/cmb.2009.0238", "doi:10.1186/gb-2012-13-12-r122"],
+		"contactOrgs": "Université Laval",
+		"repoUrl": "https://github.com/sebhtml/ray"
+
+		}
+
+}
+
