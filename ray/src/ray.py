@@ -20,7 +20,7 @@ import subprocess
 # \see https://wiki.dnanexus.com/API-Specification-v1.0.0/Files#API-method%3A-%2Ffile-xxxx%2Fdescribe
 # \see http://docs.python.org/2/tutorial/inputoutput.html
 @dxpy.entry_point('main')
-def main(wordSize, leftFiles, rightFiles, singleFiles=None):
+def main(wordSize, leftFiles, rightFiles, singleFiles = []):
 
     # The following line(s) initialize your data object inputs on the platform
     # into dxpy.DXDataObject instances that you can start using immediately.
@@ -49,7 +49,7 @@ def main(wordSize, leftFiles, rightFiles, singleFiles=None):
 	name = dataObject.describe()["name"]
 	localFileName = "leftFiles-" + str(i) + name
         dxpy.download_dxfile(identifier, localFileName)
-	localLeftFiles.push(localFileName)
+	localLeftFiles.append(localFileName)
 
     for i in range(len(rightFiles)):
         dataObject = leftFiles[i]
@@ -57,7 +57,7 @@ def main(wordSize, leftFiles, rightFiles, singleFiles=None):
 	name = dataObject.describe()["name"]
 	localFileName = "rightFiles-" + str(i) + name
         dxpy.download_dxfile(rightFiles[i].get_id(), localFileName)
-	localRightFiles.push(localFileName)
+	localRightFiles.append(localFileName)
 
     for i in range(len(singleFiles)):
         dataObject = leftFiles[i]
@@ -65,9 +65,11 @@ def main(wordSize, leftFiles, rightFiles, singleFiles=None):
 	name = dataObject.describe()["name"]
 	localFileName = "singleFiles-" + str(i) + name
         dxpy.download_dxfile(singleFiles[i].get_id(), localFileName)
-	localSingleFiles.push(localFileName)
+	localSingleFiles.append(localFileName)
 
     # Fill in your application code here.
+
+    command += " Ray "
 
     pairs = len(leftFiles)
     if len(rightFiles) < pairs:

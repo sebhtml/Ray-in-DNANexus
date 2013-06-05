@@ -21,6 +21,8 @@ Handle: unpublished
 
 * Initial version
 
+Version 2.2.0-1
+Handle: app-B6gpGX0YKz4KVjKpk1p0007v
 
 Version: 2.1.0-1
 Handle: app-B6gkJ0Z85Bb2q5YypJp0010j
