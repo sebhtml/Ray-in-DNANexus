@@ -4,7 +4,7 @@
   "summary": "Ray -- Parallel genome assemblies for parallel DNA sequencing ",
   "dxapi": "1.0.0",
   "categories": ["Assembly", "Biology", "Cool"],
-  "version": "2.1.0-1",
+  "version": "2.2.0-1",
 
   "inputSpec": [
     {
@@ -44,6 +44,11 @@
       "name": "coverageDistribution",
       "label": "Coverage distribution",
       "class": "file"
+    },
+    {
+      "name": "rayCommand",
+      "label": "Command",
+      "class": "file"
     }
   ],
 
@@ -51,9 +56,7 @@
     "interpreter": "python2.7",
     "file": "src/ray.py",
     "execDepends": [
-		{"name": "ray",
-		"package_manager": "apt" }, 
-		{"name": "openmpi",
+		{"name": "openmpi-bin",
 		"package_manager": "apt" }
 	],
     "systemRequirements": {

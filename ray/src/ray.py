@@ -20,7 +20,7 @@ import subprocess
 # \see https://wiki.dnanexus.com/API-Specification-v1.0.0/Files#API-method%3A-%2Ffile-xxxx%2Fdescribe
 # \see http://docs.python.org/2/tutorial/inputoutput.html
 @dxpy.entry_point('main')
-def main(leftFiles, rightFiles, singleFiles=None):
+def main(wordSize, leftFiles, rightFiles, singleFiles=None):
 
     # The following line(s) initialize your data object inputs on the platform
     # into dxpy.DXDataObject instances that you can start using immediately.
@@ -33,7 +33,7 @@ def main(leftFiles, rightFiles, singleFiles=None):
 
     command = "mpiexec "
 
-    subprocess.call("grep 'model name' /proc/cpuinfo | wc -l > cores")
+    os.system("grep 'model name' /proc/cpuinfo | wc -l > cores")
     processorFile = open("cores")
     numberOfProcessors = int(processorFile.read())
     processorFile.close()
@@ -85,7 +85,7 @@ def main(leftFiles, rightFiles, singleFiles=None):
 
     command += " -o Output "
 
-    subprocess.call(command)
+    os.system(command)
 
 # contigs are in Output/Contigs.fasta
 # scaffolds are in Output/Scaffolds.fasta
@@ -96,9 +96,10 @@ def main(leftFiles, rightFiles, singleFiles=None):
     # have used the output field name for the filename for each output, but you
     # can change that behavior to suit your needs.
 
-    contigs = dxpy.upload_local_file("contigs");
-    scaffolds = dxpy.upload_local_file("scaffolds");
-    coverageDistribution = dxpy.upload_local_file("coverageDistribution");
+    contigs = dxpy.upload_local_file("Output/Contigs.fasta");
+    scaffolds = dxpy.upload_local_file("Output/Scaffolds.fasta");
+    coverageDistribution = dxpy.upload_local_file("Output/CoverageDistribution.txt");
+    rayCommand = dxpy.upload_local_file("Output/RayCommand.txt");
 
     # The following line fills in some basic dummy output and assumes
     # that you have created variables to represent your output with
@@ -108,6 +109,7 @@ def main(leftFiles, rightFiles, singleFiles=None):
     output["contigs"] = dxpy.dxlink(contigs)
     output["scaffolds"] = dxpy.dxlink(scaffolds)
     output["coverageDistribution"] = dxpy.dxlink(coverageDistribution)
+    output["rayCommand"] = dxpy.dxlink(rayCommand)
 
     return output
 
